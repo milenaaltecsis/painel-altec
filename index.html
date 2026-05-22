@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0061)file:///C:/Users/Milena/Downloads/painel_altec_sheets_13.html -->
+<!-- saved from url=(0061)file:///C:/Users/Milena/Downloads/painel_altec_sheets_14.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Base de Clientes · Altec Sistemas</title>
 
-<script>Host not in allowlist</script>
+<script src="./index_files/chart.js"></script><script>if(typeof Chart==="undefined"){document.write('<script src="https://unpkg.com/chart.js@4.4.1/dist/chart.umd.min.js"><\/script>')}</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -127,7 +127,7 @@ td.valor{font-family:monospace,monospace;font-size:12px;font-weight:500}
     </div>
   </div>
   <div class="header-right">
-    <span class="sync-info" id="sync-info">Erro ao carregar</span>
+    <span class="sync-info" id="sync-info">Atualizado 22/05/2026, 17:47</span>
     <button class="btn-sync" id="btn-sync" onclick="loadData()">↻ Atualizar</button>
   </div>
 </header>
@@ -146,15 +146,15 @@ td.valor{font-family:monospace,monospace;font-size:12px;font-weight:500}
     <div class="chart-card">
       <h3>Situação de faturamento (base ativa)</h3>
       <div class="chart-inner">
-        <div class="chart-wrap"><canvas id="chart1"></canvas></div>
-        <div class="chart-legend" id="legend1"></div>
+        <div class="chart-wrap"><canvas id="chart1" width="130" height="130" style="display: block; box-sizing: border-box; height: 130px; width: 130px;"></canvas></div>
+        <div class="chart-legend" id="legend1"><div class="legend-item"><div class="legend-dot" style="background:#00B5C8"></div><span class="legend-label">ATIVO</span><span class="legend-val">840</span></div><div class="legend-item"><div class="legend-dot" style="background:#F59E0B"></div><span class="legend-label">AGUARDANDO GO LIVE</span><span class="legend-val">140</span></div><div class="legend-item"><div class="legend-dot" style="background:#EF4444"></div><span class="legend-label">FAT. SUSPENSO / INADIMP</span><span class="legend-val">113</span></div><div class="legend-item"><div class="legend-dot" style="background:#2D3170"></div><span class="legend-label">MODO CONSULTA</span><span class="legend-val">17</span></div><div class="legend-item"><div class="legend-dot" style="background:#8B5CF6"></div><span class="legend-label">EM CARÊNCIA</span><span class="legend-val">13</span></div></div>
       </div>
     </div>
     <div class="chart-card">
       <h3>Clientes por sistema (base ativa)</h3>
       <div class="chart-inner">
-        <div class="chart-wrap"><canvas id="chart2"></canvas></div>
-        <div class="chart-legend" id="legend2"></div>
+        <div class="chart-wrap"><canvas id="chart2" width="130" height="130" style="display: block; box-sizing: border-box; height: 130px; width: 130px;"></canvas></div>
+        <div class="chart-legend" id="legend2"><div class="legend-item"><div class="legend-dot" style="background:#2D3170"></div><span class="legend-label">ALTEC</span><span class="legend-val">705</span></div><div class="legend-item"><div class="legend-dot" style="background:#00B5C8"></div><span class="legend-label">R3</span><span class="legend-val">339</span></div><div class="legend-item"><div class="legend-dot" style="background:#8B5CF6"></div><span class="legend-label">RISER</span><span class="legend-val">79</span></div></div>
       </div>
     </div>
   </div>
@@ -172,13 +172,13 @@ td.valor{font-family:monospace,monospace;font-size:12px;font-weight:500}
     </select>
     <select id="f-uf" onchange="applyFilters()"><option value="">Todos os estados</option><option value="#N/A">#N/A</option><option value="#REF!">#REF!</option><option value="AC">AC</option><option value="AL">AL</option><option value="AM">AM</option><option value="AP">AP</option><option value="BA">BA</option><option value="BH">BH</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MG">MG</option><option value="MS">MS</option><option value="MT">MT</option><option value="PA">PA</option><option value="PB">PB</option><option value="PE">PE</option><option value="PI">PI</option><option value="PR">PR</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RO">RO</option><option value="RR">RR</option><option value="RS">RS</option><option value="Rj">Rj</option><option value="SC">SC</option><option value="SE">SE</option><option value="SP">SP</option><option value="Sp">Sp</option><option value="TO">TO</option></select>
     <button class="btn-clear" onclick="clearFilters()">Limpar filtros</button>
-    <span class="filter-count" id="filter-count"></span>
+    <span class="filter-count" id="filter-count">4797 resultados</span>
   </div>
 
   <div class="table-card">
     <div class="table-header">
       <span>Resultados</span>
-      <span id="tbl-summary"></span>
+      <span id="tbl-summary">4797 registros</span>
     </div>
     <div class="table-wrap">
       <table>
@@ -189,13 +189,253 @@ td.valor{font-family:monospace,monospace;font-size:12px;font-weight:500}
             <th>Data go live</th><th>Data req. cancelamento</th><th>Data distrato</th>
           </tr>
         </thead>
-        <tbody id="tbl-body"><tr><td colspan="11"><div class="empty">Erro ao carregar dados. Verifique se a planilha está compartilhada como pública.</div></td></tr></tbody>
+        <tbody id="tbl-body"><tr>
+    <td class="code">ATENAS</td>
+    <td class="fantasia" title="ATENAS">ATENAS</td>
+    <td class="razao" title="ATENAS GESTÃO DE SUPRIMENTOS LTDA ME">ATENAS GESTÃO DE SUPRIMENTOS LTDA ME</td>
+    <td class="cnpj">21.698.495/0001-44</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">48575</td>
+    <td class="fantasia" title="BELELEU PRESENTES EDUCATIVOS">BELELEU PRESENTES EDUCATIVOS</td>
+    <td class="razao" title="CAMILA GIMENES PEREIRA">CAMILA GIMENES PEREIRA</td>
+    <td class="cnpj">31.910.125/0001-82</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">SP</span></td>
+    <td><span class="badge b-inativo">INATIVO POR DISTRATO</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">17/08/2023</td>
+    <td class="date">16/10/2023</td>
+  </tr><tr>
+    <td class="code">48715</td>
+    <td class="fantasia" title="BIBOKE COMERCIAL">BIBOKE COMERCIAL</td>
+    <td class="razao" title="BIBOKE COMERCIAL LTDA (PROVISÓRIO)">BIBOKE COMERCIAL LTDA (PROVISÓRIO)</td>
+    <td class="cnpj">46.267.224/0001-65</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">SP</span></td>
+    <td><span class="badge b-inativo">INATIVO POR DISTRATO</span></td>
+    <td class="valor">—</td>
+    <td class="date">05/05/2023</td>
+    <td class="date">09/11/2023</td>
+    <td class="date">08/01/2024</td>
+  </tr><tr>
+    <td class="code">C0413</td>
+    <td class="fantasia" title="CAFÉ DONUT´S BELÉM">CAFÉ DONUT´S BELÉM</td>
+    <td class="razao" title="Y.M.YASSINE COMÉRCIO DE ALIMENTOS EIRELI- EPP">Y.M.YASSINE COMÉRCIO DE ALIMENTOS EIRELI- EPP</td>
+    <td class="cnpj">29.045.902/0001-26</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0478</td>
+    <td class="fantasia" title="CAFÉ DONUT´S BRASÍLIA">CAFÉ DONUT´S BRASÍLIA</td>
+    <td class="razao" title="V.B ASSIS CAFETERIA DONUT´S">V.B ASSIS CAFETERIA DONUT´S</td>
+    <td class="cnpj">39.246.560/0001-66</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0475</td>
+    <td class="fantasia" title="CAFÉ DONUT´S JAÚ">CAFÉ DONUT´S JAÚ</td>
+    <td class="razao" title="RAFAEL ALEIXO MARQUES">RAFAEL ALEIXO MARQUES</td>
+    <td class="cnpj">38.209.923/0001-20</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0409</td>
+    <td class="fantasia" title="CAFÉ DONUT´S JUNDIAÍ">CAFÉ DONUT´S JUNDIAÍ</td>
+    <td class="razao" title="CAFETERIA GRÃOS DE JUNDIAÍ LTDA- ME">CAFETERIA GRÃOS DE JUNDIAÍ LTDA- ME</td>
+    <td class="cnpj">28.362.958/0001-41</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0288</td>
+    <td class="fantasia" title="CAFÉ DONUT´S PALMAS- HAVAN">CAFÉ DONUT´S PALMAS- HAVAN</td>
+    <td class="razao" title="A ARTE DO CAFÉ EIRELI- ME">A ARTE DO CAFÉ EIRELI- ME</td>
+    <td class="cnpj">20.161.180/0001-09</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0263</td>
+    <td class="fantasia" title="CAFÉ DONUT´S PINDAMONHANGABA">CAFÉ DONUT´S PINDAMONHANGABA</td>
+    <td class="razao" title="ELOHIM CAFÉ LTDA">ELOHIM CAFÉ LTDA</td>
+    <td class="cnpj">19.586.203/0001-30</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">48620</td>
+    <td class="fantasia" title="CAFÉ DONUT´S PINDAMONHANGABA">CAFÉ DONUT´S PINDAMONHANGABA</td>
+    <td class="razao" title="ELOHIM CAFE LTDA">ELOHIM CAFE LTDA</td>
+    <td class="cnpj">19.586.203/0001-30</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">SP</span></td>
+    <td><span class="badge b-fat-inadimp">FAT. SUSPENSO POR INADIMP.</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0482</td>
+    <td class="fantasia" title="CAFÉ DONUT´S SÃO JOSÉ DOS CAMPOS - COLINAS">CAFÉ DONUT´S SÃO JOSÉ DOS CAMPOS - COLINAS</td>
+    <td class="razao" title="TBD CAFETERIA EIRELI">TBD CAFETERIA EIRELI</td>
+    <td class="cnpj">39.798.604/0001-60</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">48576</td>
+    <td class="fantasia" title="CAFÉ DONUT´S SÃO JOSÉ DOS CAMPOS (COLINAS)">CAFÉ DONUT´S SÃO JOSÉ DOS CAMPOS (COLINAS)</td>
+    <td class="razao" title="TBD CAFETERIA LTDA">TBD CAFETERIA LTDA</td>
+    <td class="cnpj">39.798.604/0001-60</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">SP</span></td>
+    <td><span class="badge b-fat-ok">Ativo</span></td>
+    <td class="valor">R$ 543,73</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0261</td>
+    <td class="fantasia" title="CAFÉ DONUT´S SÃO JOSÉ DOS CAMPOS- QUIOSQUE">CAFÉ DONUT´S SÃO JOSÉ DOS CAMPOS- QUIOSQUE</td>
+    <td class="razao" title="R A V COUTINHO CAFETERIA- ME">R A V COUTINHO CAFETERIA- ME</td>
+    <td class="cnpj">19.559.695/0001-74</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0503</td>
+    <td class="fantasia" title="CAFÉ DONUT´S SÃO VICENTE- SHOPPING BRISAMAR">CAFÉ DONUT´S SÃO VICENTE- SHOPPING BRISAMAR</td>
+    <td class="razao" title="NATASHA DO CARMO BERNARDINI HENRIQUES">NATASHA DO CARMO BERNARDINI HENRIQUES</td>
+    <td class="cnpj">43.468.299/0001-16</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0424</td>
+    <td class="fantasia" title="CAFÉ DONUT´S SHOP SP MARKET">CAFÉ DONUT´S SHOP SP MARKET</td>
+    <td class="razao" title="MAWA COMÉRCIO DE ALIMENTOS E BEBIDAS LTDA">MAWA COMÉRCIO DE ALIMENTOS E BEBIDAS LTDA</td>
+    <td class="cnpj">30.254.462/0001-04</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0300</td>
+    <td class="fantasia" title="CAFÉ DONUT´S SUZANO">CAFÉ DONUT´S SUZANO</td>
+    <td class="razao" title="JAC &amp; VIC CAFÉ LTDA- ME">JAC &amp; VIC CAFÉ LTDA- ME</td>
+    <td class="cnpj">20.817.024/0001-45</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0448</td>
+    <td class="fantasia" title="CAFÉ DONUT´S TOLEDO">CAFÉ DONUT´S TOLEDO</td>
+    <td class="razao" title="SN CAFÉ EIRELI">SN CAFÉ EIRELI</td>
+    <td class="cnpj">33.359.374/0001-57</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0481</td>
+    <td class="fantasia" title="CAFÉ DONUT´S TUCURUVI">CAFÉ DONUT´S TUCURUVI</td>
+    <td class="razao" title="DELFINI CAFÉ BAR E RESTAURANTE LTDA">DELFINI CAFÉ BAR E RESTAURANTE LTDA</td>
+    <td class="cnpj">39.612.623/0001-50</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">C0474</td>
+    <td class="fantasia" title="CAFÉ DONUT´S VILA VELHA">CAFÉ DONUT´S VILA VELHA</td>
+    <td class="razao" title="FARDIN COSSETTI CAFÉ LTDA">FARDIN COSSETTI CAFÉ LTDA</td>
+    <td class="cnpj">38.437.069/0001-50</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">—</span></td>
+    <td><span class="badge b-inativo">INATIVO TRANSF. ENTRE EMPRESAS</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+    <td class="date">—</td>
+  </tr><tr>
+    <td class="code">48580</td>
+    <td class="fantasia" title="CAFÉ DONUT´S VILA VELHA">CAFÉ DONUT´S VILA VELHA</td>
+    <td class="razao" title="FARDIN COSSETTI CAFE LTDA">FARDIN COSSETTI CAFE LTDA</td>
+    <td class="cnpj">38.437.069/0001-50</td>
+    <td>RISER</td>
+    <td><span style="font-family:monospace,monospace;font-size:12px">ES</span></td>
+    <td><span class="badge b-inativo">INATIVO POR DISTRATO</span></td>
+    <td class="valor">—</td>
+    <td class="date">—</td>
+    <td class="date">20/07/2023</td>
+    <td class="date">18/09/2023</td>
+  </tr></tbody>
       </table>
     </div>
     <div class="pagination">
-      <span class="pg-info" id="pg-info"></span>
+      <span class="pg-info" id="pg-info">1–20 de 4797</span>
       <div class="pg-btns">
-        <button class="pg-btn" id="pg-prev" onclick="changePage(-1)">← Anterior</button>
+        <button class="pg-btn" id="pg-prev" onclick="changePage(-1)" disabled="">← Anterior</button>
         <button class="pg-btn" id="pg-next" onclick="changePage(1)">Próxima →</button>
       </div>
     </div>
