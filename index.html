@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)file:///C:/Users/Milena/Downloads/painel_altec_6.html -->
+<!-- saved from url=(0053)file:///C:/Users/Milena/Downloads/painel_altec_7.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,7 +97,7 @@ tbody td{padding:10px 14px;color:var(--text);white-space:nowrap}
 @media(max-width:1000px){.metrics{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.metrics{grid-template-columns:repeat(2,1fr)};.charts-row{grid-template-columns:1fr};.main{padding:1rem}}
 </style>
-</head>
+<script src="./index_files/chart.js"></script></head>
 <body>
 <header class="header">
   <div class="header-left">
@@ -106,7 +106,7 @@ tbody td{padding:10px 14px;color:var(--text);white-space:nowrap}
     <div><div class="htitle">Base de Clientes</div><div class="hsub">Financeiro · Altec Sistemas</div></div>
   </div>
   <div class="hright">
-    <span class="sync-info" id="sync-info">Atualizado 25/05/2026, 10:31</span>
+    <span class="sync-info" id="sync-info">Atualizado 25/05/2026, 10:44</span>
     <button class="btn-sync" id="btn-sync" onclick="loadData()">↻ Atualizar</button>
   </div>
 </header>
@@ -152,7 +152,26 @@ tbody td{padding:10px 14px;color:var(--text);white-space:nowrap}
     </div>
   </div>
 </main>
-<script src="./index_files/chart.js" onload="chartLoaded=true"></script>
+<script>
+// Inline Chart.js loader with multiple fallbacks
+(function(){
+  var cdns = [
+    'chart.js',
+    'https://unpkg.com/chart.js@4.4.1/dist/chart.umd.min.js',
+    'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'
+  ];
+  var idx = 0;
+  function tryNext(){
+    if(idx >= cdns.length) return;
+    var s = document.createElement('script');
+    s.src = cdns[idx++];
+    s.onload = function(){ chartLoaded=true; if(typeof initCharts==='function' && window._chartsReady) initCharts(); };
+    s.onerror = tryNext;
+    document.head.appendChild(s);
+  }
+  tryNext();
+})();
+</script>
 <script>
 var chartLoaded=false;
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbylHZ1PMqMHJWpQuBCzIUd7L6CRxyYqreWEQhUZJeZgfn_65yrMHId7rlK-lsBX7Bpm/exec';
@@ -189,7 +208,7 @@ async function loadData(){
     dataDistrato:vd(r,'DATA DISTRATO')||vd(r,'dataDistrato'),
   }));
   initUF();initSit();updateCards();applyFilters();
-  if(typeof Chart!=='undefined'){initCharts();}else{setTimeout(()=>{if(typeof Chart!=='undefined')initCharts();},2000);}
+  window._chartsReady=true; if(typeof Chart!=='undefined'){initCharts();}else{var _t=setInterval(function(){if(typeof Chart!=='undefined'){clearInterval(_t);initCharts();}},500);}  
   btn.disabled=false;btn.textContent='↻ Atualizar';
 }
 
