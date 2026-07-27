@@ -334,7 +334,7 @@ function updateCards(){
 }
 function initCharts(){
   if(c2)c2.destroy();if(cClass)cClass.destroy();
-  const R=ALL.filter(x=>{const sf=x.situacaoFat.toUpperCase(),s=x.situacao.toUpperCase();return s==='ATIVO'||s==='AGUARDANDO GO LIVE'||sf.includes('INADIMP')||sf==='MODO CONSULTA'||sf.includes('CARÊNCIA')||sf==='EM CARÊNCIA';});
+  const R=ALL.filter(x=>(x.confereContrato||'').trim().toUpperCase()==='OK');
   // Classificação (apenas clientes com classificação preenchida)
   const cm={};
   R.forEach(r=>{
