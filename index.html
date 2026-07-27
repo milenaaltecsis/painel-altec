@@ -212,7 +212,7 @@ async function loadData(){
     confereContrato:v(r,'Confere com Contrato?')||v(r,'Confere Contrato?')||v(r,'CONFERE COM CONTRATO?')||v(r,'confereContrato'),
     classificacao:v(r,'Classificação')||v(r,'CLASSIFICAÇÃO')||v(r,'classificacao'),
   }));
-  updateCards();applyFilters();
+  initFilterOptions();updateCards();applyFilters();
   window._chartsReady=true; if(typeof Chart!=='undefined'){initCharts();}else{var _t=setInterval(function(){if(typeof Chart!=='undefined'){clearInterval(_t);initCharts();}},500);}  
   btn.disabled=false;btn.textContent='↻ Atualizar';
 }
@@ -256,6 +256,19 @@ function fatBadge(s){
 }
 
 
+function initFilterOptions(){
+  rebuildSelect('f-uf','Todos os estados',ALL.map(r=>(r.uf||'').trim().toUpperCase()));
+  rebuildSelect('f-class','Todas as classificações',ALL.map(r=>(r.classificacao||'').trim().toUpperCase()));
+  rebuildSelect('f-situacao','Todas as situações',ALL.map(r=>(r.situacao||'').trim().toUpperCase()));
+  rebuildSelect('f-sis','Todos os sistemas',ALL.map(r=>(r.sistema||'').trim()));
+}
+function rebuildSelect(id,defaultLabel,values){
+  const sel=document.getElementById(id);
+  const current=sel.value;
+  const opts=[...new Set(values.filter(Boolean))].sort();
+  sel.innerHTML='<option value="">'+defaultLabel+'</option>'+opts.map(v=>'<option value="'+v+'">'+v+'</option>').join('');
+  if(opts.includes(current))sel.value=current;
+}
 function applyFilters(){
   const q=document.getElementById('search').value.toLowerCase().trim();
   const qDigits=q.replace(/[.\-\/\s]/g,'');
@@ -270,7 +283,7 @@ function applyFilters(){
     if(cls&&(r.classificacao||'').trim().toUpperCase()!==cls)return false;
     if(situacao&&(r.situacao||'').trim().toUpperCase()!==situacao)return false;
     if(sis&&r.sistema!==sis)return false;
-    if(uf&&r.uf!==uf)return false;
+    if(uf&&(r.uf||'').trim().toUpperCase()!==uf)return false;
     return true;
   });
   page=1;renderTable();
