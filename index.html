@@ -28,7 +28,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:v
 .btn-sync:disabled{opacity:.5;cursor:default}
 .main{max-width:1380px;margin:0 auto;padding:1.75rem 2rem}
 .stitle{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:.75rem}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1.75rem}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.75rem}
 .metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .metric::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .m-ativo::before{background:var(--teal)}
@@ -99,6 +99,7 @@ tbody td{padding:10px 14px;color:var(--text);white-space:nowrap}
 .pg-btn:hover:not(:disabled){background:var(--teal);color:white;border-color:var(--teal)}
 .pg-btn:disabled{opacity:.35;cursor:default}
 .empty{padding:3rem;text-align:center;color:var(--text3);font-size:14px}
+@media(max-width:900px){.metrics{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.metrics{grid-template-columns:1fr};.charts-row{grid-template-columns:1fr};.main{padding:1rem}}
 </style>
 <script src="./index_files/chart.js"></script></head>
@@ -117,9 +118,10 @@ tbody td{padding:10px 14px;color:var(--text);white-space:nowrap}
 <main class="main">
   <div class="stitle">Visão geral — clientes ativos</div>
   <div class="metrics">
-    <div class="metric m-ag"><div class="metric-icon">🕐</div><div class="metric-label">Aguardando go live</div><div class="metric-value" id="c-ag">—</div><div class="metric-sub">a ativar</div></div>
-    <div class="metric m-in"><div class="metric-icon">⚠️</div><div class="metric-label">Faturamento suspenso</div><div class="metric-value" id="c-in">—</div><div class="metric-sub">fat. suspenso</div></div>
-    <div class="metric m-ativo"><div class="metric-icon">✅</div><div class="metric-label">Ativos</div><div class="metric-value" id="c-ativo">—</div><div class="metric-sub">contrato conferido (OK)</div></div>
+    <div class="metric m-ag"><div class="metric-icon">🕐</div><div class="metric-label">A ativar</div><div class="metric-value" id="c-ag">—</div></div>
+    <div class="metric m-in"><div class="metric-icon">⚠️</div><div class="metric-label">Faturamento suspenso</div><div class="metric-value" id="c-in">—</div></div>
+    <div class="metric m-co"><div class="metric-icon">👥</div><div class="metric-label">Clientes ativos</div><div class="metric-value" id="c-clientes">—</div></div>
+    <div class="metric m-ativo"><div class="metric-icon">✅</div><div class="metric-label">Contratos ativos</div><div class="metric-value" id="c-ativo">—</div></div>
   </div>
   <div class="charts-row">
     <div class="chart-card"><h3>Classificação de clientes</h3><div class="chart-inner"><div class="chart-wrap"><canvas id="chartClass" width="130" height="130" style="display: block; box-sizing: border-box; height: 130px; width: 130px;"></canvas></div><div class="chart-legend" id="legendClass"></div></div></div>
@@ -331,6 +333,7 @@ function exportReport(){
 function updateCards(){
   document.getElementById('c-ag').textContent=ALL.filter(x=>x.situacaoFat.trim().toUpperCase()==='AGUARDANDO GO LIVE').length;
   document.getElementById('c-in').textContent=ALL.filter(x=>x.situacao.toUpperCase().includes('SUSPENSO')).length;
+  document.getElementById('c-clientes').textContent=ALL.filter(x=>x.confereContrato.trim().toUpperCase()==='OK').length;
   document.getElementById('c-ativo').textContent=ALL.filter(x=>x.confereContrato.trim().toUpperCase()==='OK').reduce((sum,x)=>{const n=parseInt(String(x.qtdContratos).replace(',', '.'),10);return sum+((!n||n<1)?1:n);},0);
 }
 function initCharts(){
